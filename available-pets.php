@@ -31,7 +31,7 @@
         <section id="available-pets" class="available-pets section">
             <div class="container">
                 <?php require_once __DIR__ . '/includes/pets-data.php'; $pets = getAllPets(); ?>
-                <div class="row gx-4 gy-5 justify-content-center">
+                <div class="row gx-4 gy-5 custom-gx-3x justify-content-center">
                   <?php foreach ($pets as $index => $pet): ?>
                     <?php if (!isset($pet['images']) || count($pet['images']) === 0) continue; ?>
                     <?php $galleryId = htmlspecialchars($pet['slug']) . '-gallery'; ?>

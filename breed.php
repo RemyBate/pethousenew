@@ -107,7 +107,7 @@ $displayName = getDisplayNameForSlug($slug);
 
     <section class="section">
       <div class="container">
-        <div class="row gx-4 gy-5 justify-content-center">
+        <div class="row gx-4 gy-5 custom-gx-3x justify-content-center">
           <?php foreach ($groups as $idx => $group): if (empty($group)) { continue; } $name = isset($group['name']) && $group['name'] ? $group['name'] : generateDogName($slug, $idx); $images = isset($group['images']) ? $group['images'] : $group; if (count($images) === 0) { continue; } $gallery = $slug . '-dog-' . $idx; $cover = $images[0]; ?>
             <div class="col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="<?php echo 100 + ($idx % 5) * 50; ?>">
               <div class="card border-0 shadow-sm dog-card">

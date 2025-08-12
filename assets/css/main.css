@@ -3648,3 +3648,9 @@ section,
   width: 100%; /* Ensure the image takes the full width of its container */
   height: 100%; /* Ensure the image takes the full height of its container */
 }
+
+/* Custom wider horizontal gutters (3x current gx-4) */
+.custom-gx-3x {
+  /* Bootstrap default --bs-gutter-x is 1.5rem for gx-4; triple that to 4.5rem */
+  --bs-gutter-x: 4.5rem !important;
+}
