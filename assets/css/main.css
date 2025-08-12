@@ -164,8 +164,8 @@ body:not(.index-page) .header {
 }
 
 .header .logo img {
-  max-height: 36px;
-  margin-right: 8px;
+  max-height: 48px; /* increased by ~1/3 */
+  margin-right: 10px;
 }
 
 .header .logo h1 {

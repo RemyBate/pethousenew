@@ -30,17 +30,27 @@
         <!-- Available Pets Section -->
         <section id="available-pets" class="available-pets section">
             <div class="container">
-                <?php require_once __DIR__ . '/includes/pets-data.php'; $pets = getAllPets(); ?>
+                <?php require_once __DIR__ . '/includes/pets-data.php';
+                  // Rebuild global unique name map after image/name updates
+                  // Calling this ensures newly added/renamed dogs reflect across pages
+                  getGlobalUniqueNameMap();
+                  $pets = getAllPets();
+                ?>
                 <div class="row gx-4 gy-5 custom-gx-3x justify-content-center">
-                  <?php foreach ($pets as $index => $pet): ?>
+                  <?php $usedNames = []; foreach ($pets as $index => $pet): ?>
                     <?php if (!isset($pet['images']) || count($pet['images']) === 0) continue; ?>
-                    <?php $galleryId = htmlspecialchars($pet['slug']) . '-gallery'; ?>
+                    <?php 
+                      // Ensure unique display name across the page
+                      $dogId = $pet['slug'] . '/#cover';
+                      $displayName = getUniqueNameForDog($pet['slug'], $dogId, $pet['name'], $index);
+                      $galleryId = htmlspecialchars($pet['slug']) . '-gallery'; 
+                    ?>
                     <div class="col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="<?php echo 100 + ($index % 5) * 50; ?>">
                       <div class="card border-0 shadow-sm">
                         <div class="row g-0 align-items-stretch">
                           <div class="col-md-6">
-                            <a href="<?php echo htmlspecialchars($pet['images'][0]); ?>" class="glightbox" data-gallery="<?php echo $galleryId; ?>" aria-label="Open <?php echo htmlspecialchars($pet['name']); ?>'s photo gallery">
-                              <img src="<?php echo htmlspecialchars($pet['images'][0]); ?>" class="img-fluid w-100 h-100" alt="<?php echo htmlspecialchars($pet['name']); ?>" style="object-fit: cover; min-height: 100%" />
+                              <a href="<?php echo htmlspecialchars($pet['images'][0]); ?>" class="glightbox" data-gallery="<?php echo $galleryId; ?>" aria-label="Open <?php echo htmlspecialchars($displayName); ?>'s photo gallery">
+                               <img src="<?php echo htmlspecialchars($pet['images'][0]); ?>" class="img-fluid w-100 h-100" alt="<?php echo htmlspecialchars($displayName); ?>" style="object-fit: cover; min-height: 100%" />
                             </a>
                             <?php for ($i = 1; $i < count($pet['images']); $i++): ?>
                               <a href="<?php echo htmlspecialchars($pet['images'][$i]); ?>" class="glightbox" data-gallery="<?php echo $galleryId; ?>" style="display:none"></a>
@@ -48,12 +58,17 @@
                           </div>
                           <div class="col-md-6 d-flex">
                             <div class="p-4 d-flex flex-column justify-content-center">
-                              <h2 class="mb-2"><?php echo htmlspecialchars($pet['name']); ?></h2>
+                              <h2 class="mb-2"><?php echo htmlspecialchars($displayName); ?></h2>
                               <p class="mb-2"><strong>Breed:</strong> <?php echo htmlspecialchars($pet['breed']); ?></p>
-                              <p class="mb-3"><strong>Age:</strong> <?php echo htmlspecialchars($pet['age']); ?></p>
-                              <p class="mb-4"><?php echo htmlspecialchars($pet['description']); ?> Click the photo to view more pictures of <?php echo htmlspecialchars($pet['name']); ?>.</p>
+                              <?php
+                                // If age/description are not provided, generate defaults based on slug/name
+                                $age = isset($pet['age']) && $pet['age'] !== '' ? $pet['age'] : generateDogAge($pet['slug'], $displayName);
+                                $desc = isset($pet['description']) && $pet['description'] !== '' ? $pet['description'] : generateDogDescription($pet['slug'], $displayName);
+                              ?>
+                              <p class="mb-3"><strong>Age:</strong> <?php echo htmlspecialchars($age); ?></p>
+                              <p class="mb-4"><?php echo htmlspecialchars($desc); ?> Click the photo to view more pictures of <?php echo htmlspecialchars($pet['name']); ?>.</p>
                               <div>
-                                <a href="contact.php" class="btn btn-primary me-2">Adopt <?php echo htmlspecialchars($pet['name']); ?></a>
+                                <a href="contact.php" class="btn btn-primary me-2">Adopt <?php echo htmlspecialchars($displayName); ?></a>
                                 <a href="<?php echo htmlspecialchars($pet['images'][0]); ?>" class="btn btn-outline-primary glightbox" data-gallery="<?php echo $galleryId; ?>">View Gallery</a>
                               </div>
                             </div>

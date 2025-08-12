@@ -1,6 +1,9 @@
 <?php
 require_once __DIR__ . '/includes/pets-data.php';
 
+// Ensure global unique names map is up-to-date when navigating directly to a breed
+getGlobalUniqueNameMap();
+
 $slug = isset($_GET['breed']) ? preg_replace('/[^a-z0-9\-]/i', '', $_GET['breed']) : '';
 if ($slug === '') {
   header('Location: available-pets.php');
@@ -98,7 +101,18 @@ $displayName = getDisplayNameForSlug($slug);
     <section class="section">
       <div class="container">
         <div class="row gx-4 gy-5 custom-gx-3x justify-content-center">
-          <?php foreach ($groups as $idx => $group): if (empty($group)) { continue; } $name = isset($group['name']) && $group['name'] ? $group['name'] : generateDogName($slug, $idx); $images = isset($group['images']) ? $group['images'] : $group; if (count($images) === 0) { continue; } $gallery = $slug . '-dog-' . $idx; $cover = $images[0]; ?>
+          <?php $usedNames = []; foreach ($groups as $idx => $group):
+            if (empty($group)) { continue; }
+            $rawName = isset($group['name']) && $group['name'] ? $group['name'] : generateDogName($slug, $idx);
+            $dogId = $slug . '/' . preg_replace('/\s+/', '-', strtolower((string)$rawName)) . '#'.$idx;
+            $name = getUniqueNameForDog($slug, $dogId, (string)$rawName, $idx);
+            $images = isset($group['images']) ? $group['images'] : $group;
+            if (count($images) === 0) { continue; }
+            $gallery = $slug . '-dog-' . $idx;
+            $cover = $images[0];
+            $age = generateDogAge($slug, (string)$name);
+            $desc = generateDogDescription($slug, (string)$name);
+          ?>
             <div class="col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="<?php echo 100 + ($idx % 5) * 50; ?>">
               <div class="card border-0 shadow-sm dog-card">
                 <div class="row g-0 align-items-stretch">
@@ -114,8 +128,8 @@ $displayName = getDisplayNameForSlug($slug);
                     <div class="p-4 d-flex flex-column justify-content-center">
                       <h2 class="mb-2"><?php echo htmlspecialchars($name); ?></h2>
                       <p class="mb-2"><strong>Breed:</strong> <?php echo htmlspecialchars($displayName); ?></p>
-                      <p class="mb-3"><strong>Age:</strong> Varies</p>
-                      <p class="mb-4">Loving, healthy and ready to join a caring home. Click the photo to view a larger image of <?php echo htmlspecialchars($name); ?>.</p>
+                      <p class="mb-3"><strong>Age:</strong> <?php echo htmlspecialchars($age); ?></p>
+                      <p class="mb-4"><?php echo htmlspecialchars($desc); ?> Click the photo to view a larger image of <?php echo htmlspecialchars($name); ?>.</p>
                       <div>
                         <a href="contact.php" class="btn btn-primary me-2">Adopt <?php echo htmlspecialchars($name); ?></a>
                         <a href="<?php echo htmlspecialchars($cover); ?>" class="btn btn-outline-primary glightbox" data-gallery="<?php echo htmlspecialchars($gallery); ?>">View Gallery</a>
