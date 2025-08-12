@@ -7,8 +7,68 @@ if ($slug === '') {
   exit;
 }
 
-$images = scanPetImages($slug);
-if (count($images) === 0) {
+$allImages = scanPetImages($slug);
+// Exactly 4 images per dog, target 5 dogs (20 images)
+$imagesPerDog = 4;
+$targetDogs = 5;
+
+// First, prefer curated subfolders: assets/img/<breed>/<dog-id>/[1..].jpg
+$groups = [];
+$breedDir = __DIR__ . '/assets/img/' . $slug;
+if (is_dir($breedDir)) {
+  $entries = scandir($breedDir) ?: [];
+  foreach ($entries as $entry) {
+    if ($entry === '.' || $entry === '..') { continue; }
+    $full = $breedDir . '/' . $entry;
+    if (!is_dir($full)) { continue; }
+    // Collect images within this dog folder
+    $files = scandir($full) ?: [];
+    $images = [];
+    foreach ($files as $f) {
+      if ($f === '.' || $f === '..') { continue; }
+      $ext = strtolower(pathinfo($f, PATHINFO_EXTENSION));
+      if (in_array($ext, ['jpg','jpeg','png','webp'], true)) {
+        $images[] = 'assets/img/' . $slug . '/' . $entry . '/' . $f;
+      }
+    }
+    sort($images, SORT_NATURAL | SORT_FLAG_CASE);
+    if (count($images) > 0) {
+      // Use the subfolder name as this dog's display name when available
+      $dogName = $entry;
+      // Allow variable image counts per dog, but cap to $imagesPerDog for consistent gallery size
+      $groups[] = [
+        'name' => $dogName,
+        'images' => array_slice($images, 0, $imagesPerDog),
+      ];
+    }
+    if (count($groups) >= $targetDogs) { break; }
+  }
+}
+
+// If we still need more dogs, fill from top-level images grouped by 4
+if (count($groups) < $targetDogs) {
+  $neededDogs = $targetDogs - count($groups);
+  // Exclude any images that are already used from subfolders (none overlap with top-level)
+  // Group available top-level images
+  $neededImages = $neededDogs * $imagesPerDog;
+  if (count($allImages) >= $neededImages) {
+    $usable = array_slice($allImages, 0, $neededImages);
+  } else {
+    $usableCount = intdiv(count($allImages), $imagesPerDog) * $imagesPerDog;
+    $usable = array_slice($allImages, 0, $usableCount);
+  }
+  $fallbackGroups = array_chunk($usable, $imagesPerDog);
+  foreach ($fallbackGroups as $g) {
+    if (count($groups) >= $targetDogs) { break; }
+    if (count($g) === $imagesPerDog) {
+      $groups[] = [
+        'name' => null,
+        'images' => $g,
+      ];
+    }
+  }
+}
+if (count($groups) === 0) {
   header('Location: available-pets.php');
   exit;
 }
@@ -48,14 +108,17 @@ $displayName = getDisplayNameForSlug($slug);
     <section class="section">
       <div class="container">
         <div class="row gy-4 justify-content-center">
-          <?php foreach ($images as $idx => $img): $name = generateDogName($slug, $idx); $gallery = $slug . '-dog-' . $idx; ?>
+          <?php foreach ($groups as $idx => $group): if (empty($group)) { continue; } $name = isset($group['name']) && $group['name'] ? $group['name'] : generateDogName($slug, $idx); $images = isset($group['images']) ? $group['images'] : $group; if (count($images) === 0) { continue; } $gallery = $slug . '-dog-' . $idx; $cover = $images[0]; ?>
             <div class="col-lg-8" data-aos="fade-up" data-aos-delay="<?php echo 100 + ($idx % 5) * 50; ?>">
               <div class="card border-0 shadow-sm dog-card">
                 <div class="row g-0 align-items-stretch">
                   <div class="col-md-6">
-                    <a href="<?php echo htmlspecialchars($img); ?>" class="glightbox" data-gallery="<?php echo htmlspecialchars($gallery); ?>" aria-label="Open <?php echo htmlspecialchars($name); ?>'s photo gallery">
-                      <img src="<?php echo htmlspecialchars($img); ?>" class="img-fluid w-100 h-100" alt="<?php echo htmlspecialchars($name); ?>" />
+                    <a href="<?php echo htmlspecialchars($cover); ?>" class="glightbox" data-gallery="<?php echo htmlspecialchars($gallery); ?>" aria-label="Open <?php echo htmlspecialchars($name); ?>'s photo gallery">
+                      <img src="<?php echo htmlspecialchars($cover); ?>" class="img-fluid w-100 h-100" alt="<?php echo htmlspecialchars($name); ?>" />
                     </a>
+                    <?php for ($i = 1; $i < count($images); $i++): ?>
+                      <a href="<?php echo htmlspecialchars($images[$i]); ?>" class="glightbox" data-gallery="<?php echo htmlspecialchars($gallery); ?>" style="display:none"></a>
+                    <?php endfor; ?>
                   </div>
                   <div class="col-md-6 d-flex">
                     <div class="p-4 d-flex flex-column justify-content-center">
@@ -65,7 +128,7 @@ $displayName = getDisplayNameForSlug($slug);
                       <p class="mb-4">Loving, healthy and ready to join a caring home. Click the photo to view a larger image of <?php echo htmlspecialchars($name); ?>.</p>
                       <div>
                         <a href="contact.php" class="btn btn-primary me-2">Adopt <?php echo htmlspecialchars($name); ?></a>
-                        <a href="<?php echo htmlspecialchars($img); ?>" class="btn btn-outline-primary glightbox" data-gallery="<?php echo htmlspecialchars($gallery); ?>">View Gallery</a>
+                        <a href="<?php echo htmlspecialchars($cover); ?>" class="btn btn-outline-primary glightbox" data-gallery="<?php echo htmlspecialchars($gallery); ?>">View Gallery</a>
                       </div>
                     </div>
                   </div>

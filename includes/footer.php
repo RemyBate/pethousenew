@@ -13,7 +13,7 @@
     <div class="container footer-top">
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about">
-                <a href="index.html" class="d-flex align-items-center">
+                <a href="index.php" class="d-flex align-items-center">
                     <span class="sitename">PupNest</span>
                 </a>
                 <div class="footer-contact pt-3">

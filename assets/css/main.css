@@ -152,6 +152,13 @@ h6 {
   z-index: 997;
 }
 
+/* Force navy blue header with white text on interior pages */
+body:not(.index-page) .header {
+  --background-color: #001f3f; /* Navy blue */
+  --heading-color: #ffffff;
+  --nav-color: #ffffff;
+}
+
 .header .logo {
   line-height: 1;
 }
@@ -206,7 +213,8 @@ h6 {
 /* Index Page Header
 ------------------------------*/
 .index-page .header {
-  --background-color: rgba(255, 255, 255, 0);
+  /* Ensure a visible header background on the home page as well */
+  --background-color: rgba(40, 58, 90, 0.98);
   --heading-color: #ffffff;
   --nav-color: #ffffff;
 }
@@ -214,7 +222,7 @@ h6 {
 /* Index Page Header on Scroll
 ------------------------------*/
 .index-page.scrolled .header {
-  --background-color: rgba(40, 58, 90, 0.9);
+  --background-color: rgba(40, 58, 90, 0.98);
 }
 
 /*--------------------------------------------------------------
@@ -328,18 +336,23 @@ h6 {
 
   /* Breeds mega dropdown (second level) */
   .navmenu .dropdown .breeds-grid {
-    display: grid !important;
-    grid-template-columns: repeat(5, minmax(160px, 1fr));
+    /* Use flex grid to force 5 columns */
+    display: flex !important;
+    flex-wrap: wrap;
+    align-content: flex-start;
     gap: 6px 12px;
     padding: 14px 16px;
-    min-width: 820px;
+    width: 900px;
     max-width: 1000px;
     left: 100% !important;
     top: 0 !important;
   }
 
   .navmenu .dropdown .breeds-grid li {
-    min-width: auto;
+    min-width: 0 !important;
+    flex: 0 0 20%;
+    max-width: 20%;
+    white-space: normal;
   }
 
   .navmenu .dropdown .breeds-grid a {
@@ -1583,6 +1596,27 @@ section,
   transition: 0.5s;
   padding: 30px;
   height: 100%;
+}
+
+/* About page section backgrounds */
+
+.about-page .why-us {
+  /* Deeper, more pronounced background */
+  background: linear-gradient(180deg, #e4eefc 0%, #cfdcf6 100%);
+  border-top: 1px solid #c2d1ea;
+  border-bottom: 1px solid #c2d1ea;
+}
+
+.about-page .team {
+  /* Stronger lavender to stand out */
+  background: #ece3ff;
+  border-top: 1px solid #dacfff;
+  border-bottom: 1px solid #dacfff;
+}
+
+.about-page .team .section-header h2,
+.about-page .why-us .section-header h2 {
+  color: #1f2d3d;
 }
 
 @media (max-width: 468px) {

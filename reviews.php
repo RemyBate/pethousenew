@@ -27,7 +27,10 @@
             </div>
         </div>
 
+        <?php $section = isset($_GET['section']) ? $_GET['section'] : ''; ?>
+
         <!-- Adoption Stories Section -->
+        <?php if ($section === '' || $section === 'adoption-stories'): ?>
         <section id="adoption-stories" class="adoption-stories section">
             <div class="container">
                 <div class="section-header">
@@ -38,7 +41,6 @@
                 <div class="row gy-4">
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="story-card">
-                            <img src="assets/img/stories/story1.jpg" class="img-fluid" alt="Adoption Story">
                             <div class="story-content">
                                 <h3>Max's Journey to His Forever Home</h3>
                                 <p class="story-meta">By Sarah Johnson | January 15, 2024</p>
@@ -50,7 +52,6 @@
 
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="story-card">
-                            <img src="assets/img/stories/story2.jpg" class="img-fluid" alt="Adoption Story">
                             <div class="story-content">
                                 <h3>Luna's New Beginning</h3>
                                 <p class="story-meta">By Michael Brown | February 1, 2024</p>
@@ -59,11 +60,57 @@
                             </div>
                         </div>
                     </div>
+
+                  <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="story-card">
+                      <div class="story-content">
+                        <h3>From Shelter to Sunshine</h3>
+                        <p class="story-meta">By Olivia Carter | March 8, 2024</p>
+                        <p>After weeks of patient socialization, Daisy found a family who adores her goofy smile and endless zoomies.</p>
+                        <a href="#" class="read-more">Read Full Story</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="story-card">
+                      <div class="story-content">
+                        <h3>Charlie Finds a Running Buddy</h3>
+                        <p class="story-meta">By Ethan Miller | April 2, 2024</p>
+                        <p>Charlie loves long runs at the park with his new person and has already completed his first 5k!</p>
+                        <a href="#" class="read-more">Read Full Story</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="story-card">
+                      <div class="story-content">
+                        <h3>A Gentle Giant Named Bruno</h3>
+                        <p class="story-meta">By Sophia Nguyen | May 10, 2024</p>
+                        <p>Bruno's calm nature won over every heart at home. He guards the toddler's naps like a pro.</p>
+                        <a href="#" class="read-more">Read Full Story</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="story-card">
+                      <div class="story-content">
+                        <h3>Maple Learns to Smile Again</h3>
+                        <p class="story-meta">By Daniel Ross | June 1, 2024</p>
+                        <p>With patience and love, Maple blossomed into a cuddly lapdog who never misses a movie night.</p>
+                        <a href="#" class="read-more">Read Full Story</a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
         </section>
+        <?php endif; ?>
 
         <!-- Testimonials Section -->
+        <?php if ($section === '' || $section === 'testimonials'): ?>
         <section id="testimonials" class="testimonials section">
             <div class="container">
                 <div class="section-header">
@@ -81,7 +128,6 @@
                                 </p>
                             </div>
                             <div class="testimonial-author">
-                                <img src="assets/img/testimonials/testimonial-1.jpg" class="testimonial-img" alt="">
                                 <div>
                                     <h3>John Smith</h3>
                                     <h4>Dog Parent</h4>
@@ -99,7 +145,6 @@
                                 </p>
                             </div>
                             <div class="testimonial-author">
-                                <img src="assets/img/testimonials/testimonial-2.jpg" class="testimonial-img" alt="">
                                 <div>
                                     <h3>Emily Davis</h3>
                                     <h4>Cat Parent</h4>
@@ -117,7 +162,6 @@
                                 </p>
                             </div>
                             <div class="testimonial-author">
-                                <img src="assets/img/testimonials/testimonial-3.jpg" class="testimonial-img" alt="">
                                 <div>
                                     <h3>Robert Wilson</h3>
                                     <h4>Dog Parent</h4>
@@ -125,11 +169,64 @@
                             </div>
                         </div>
                     </div>
+
+                  <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="testimonial-card">
+                      <div class="testimonial-content">
+                        <p><i class="bi bi-quote quote-icon-left"></i>
+                            Incredible experience from start to finish. Our adoption counselor was patient and informative.
+                            <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
+                      </div>
+                      <div class="testimonial-author">
+                        <div>
+                          <h3>Alex Carter</h3>
+                          <h4>Dog Parent</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="testimonial-card">
+                      <div class="testimonial-content">
+                        <p><i class="bi bi-quote quote-icon-left"></i>
+                            We felt supported even after adoption with training tips and check-ins. Highly recommend!
+                            <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
+                      </div>
+                      <div class="testimonial-author">
+                        <div>
+                          <h3>Priya Patel</h3>
+                          <h4>Dog Parent</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="testimonial-card">
+                      <div class="testimonial-content">
+                        <p><i class="bi bi-quote quote-icon-left"></i>
+                            Our pup came home healthy and happy. The vet records and guidance were top-notch.
+                            <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
+                      </div>
+                      <div class="testimonial-author">
+                        <div>
+                          <h3>Marco Silva</h3>
+                          <h4>Dog Parent</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
         </section>
+        <?php endif; ?>
 
         <!-- Google Reviews Section -->
+        <?php if ($section === '' || $section === 'google-reviews'): ?>
         <section id="google-reviews" class="google-reviews section">
             <div class="container">
                 <div class="section-header">
@@ -152,7 +249,6 @@
                             </div>
                             <p class="review-text">Amazing place! The staff is very knowledgeable and caring. They helped me find the perfect companion for my family.</p>
                             <div class="reviewer">
-                                <img src="assets/img/reviews/google-review-1.jpg" alt="Reviewer">
                                 <span>David Thompson</span>
                             </div>
                         </div>
@@ -172,14 +268,59 @@
                             </div>
                             <p class="review-text">The adoption process was smooth and professional. They really care about matching the right pet with the right family.</p>
                             <div class="reviewer">
-                                <img src="assets/img/reviews/google-review-2.jpg" alt="Reviewer">
                                 <span>Lisa Anderson</span>
                             </div>
                         </div>
                     </div>
+
+                  <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="google-review-card">
+                      <div class="review-header">
+                        <div class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <span class="review-date">3 months ago</span>
+                      </div>
+                      <p class="review-text">Wonderful staff and fantastic follow-up. We felt supported every step of the way.</p>
+                      <div class="reviewer">
+                        <span>Hannah Lee</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="google-review-card">
+                      <div class="review-header">
+                        <div class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <span class="review-date">4 months ago</span>
+                      </div>
+                      <p class="review-text">Great matching process and thorough vetting. Our dog fits perfectly with our family.</p>
+                      <div class="reviewer">
+                        <span>Kevin Wright</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="google-review-card">
+                      <div class="review-header">
+                        <div class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <span class="review-date">5 months ago</span>
+                      </div>
+                      <p class="review-text">Clean facility, kind volunteers, and a seamless adoption day. Highly recommend.</p>
+                      <div class="reviewer">
+                        <span>Naomi Brooks</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
         </section>
+        <?php endif; ?>
     </main>
 
     <?php require 'includes/footer.php' ?>

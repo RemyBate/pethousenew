@@ -10,7 +10,7 @@
     <?php require 'includes/head.php' ?>
 </head>
 
-<body>
+<body class="about-page">
     <?php require 'includes/header.php' ?>
 
     <main class="main">
@@ -30,13 +30,13 @@
         <!-- About Section -->
         <section id="about" class="about section">
             <div class="container">
-                <div class="row gy-4">
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="about-img">
-                            <img src="assets/img/about/about.jpg" class="img-fluid" alt="About PupNest">
-                        </div>
-                    </div>
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="row gy-4 align-items-center">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="about-img text-center">
+                    <img src="assets/our%20mission.jpg" class="img-fluid rounded-4 shadow-lg w-100" alt="Person with a dog outdoors" style="height: 380px; object-fit: cover; object-position: center;">
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="about-content">
                             <h2>Our Mission</h2>
                             <p>At PupNest, we believe every pet deserves a loving home. Our mission is to connect wonderful pets with caring families, creating lasting bonds that enrich lives on both ends of the leash.</p>

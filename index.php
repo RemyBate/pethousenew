@@ -12,46 +12,7 @@
 </head>
 
 <body class="index-page">
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div
-      class="container-fluid container-xl position-relative d-flex align-items-center">
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <h1 class="sitename">PupNest</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.php" class="active">Home</a></li>
-          <li class="dropdown">
-            <a href="available-pets.php"><span>Available Pets</span>
-              <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="available-pets.php?type=dogs">Dogs</a></li>
-              <li><a href="available-pets.php?type=cats">Cats</a></li>
-              <li><a href="available-pets.php?type=other">Other Pets</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="reviews.php"><span>Reviews</span>
-              <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="reviews.php#adoption-stories">Adoption Stories</a></li>
-              <li><a href="reviews.php#testimonials">Customer Testimonials</a></li>
-              <li><a href="reviews.php#google-reviews">Google Reviews</a></li>
-            </ul>
-          </li>
-          <li><a href="about.php">About Us</a></li>
-          <li><a href="adoption-process.php">Adoption Process</a></li>
-          <li><a href="contact.php">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted" href="#">Adopt Now</a>
-    </div>
-  </header>
+  <?php require 'includes/header.php' ?>
 
   <main class="main">
     <!-- Hero Section -->
@@ -75,7 +36,7 @@
             data-aos="zoom-out"
             data-aos-delay="200">
             <img
-              src="assets/img/noin/noin1.jpeg"
+              src="assets/img/hero-img.png"
               class="img-fluid animated hero-dog-image"
               alt="PupNest Hero Image" />
           </div>

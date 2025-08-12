@@ -4,6 +4,30 @@ declare(strict_types=1);
 
 const NAMED_PET_SLUGS = ['max','rocky','luna','noin','alaris','laura'];
 const NON_PET_FOLDERS = ['bg','blog','clients','cta','illustration','person','portfolio','services','steps'];
+// Only allow these breed slugs to appear anywhere in the UI
+const ALLOWED_BREED_SLUGS = [
+    'french-bulldog',
+    'labrador-retriever',
+    'golden-retriever',
+    'german-shepherd',
+    'poodle',
+    'toy-poodle',
+    'dachshund',
+    'bulldog',
+    'beagle',
+    'rottweiler',
+    'german-shorthaired-pointer',
+    'pembroke-welsh-corgi',
+    'australian-shepherd',
+    'yorkshire-terrier',
+    'cavalier-king-charles-spaniel',
+    'doberman-pinscher',
+    'cane-corso',
+    'miniature-schnauzer',
+    'boxer',
+    'great-dane',
+    'shih-tzu',
+];
 
 function scanPetImages(string $slug): array {
     $baseDir = __DIR__ . '/../assets/img/' . $slug;
@@ -26,39 +50,52 @@ function scanPetImages(string $slug): array {
     }, $imageFiles);
 }
 
+/**
+ * Returns images from the first subfolder inside a breed directory.
+ * Useful when a breed stores images per-dog in curated subfolders instead of top-level files.
+ */
+function scanFirstSubfolderImages(string $slug): array {
+    $baseDir = __DIR__ . '/../assets/img/' . $slug;
+    if (!is_dir($baseDir)) {
+        return [];
+    }
+
+    $entries = scandir($baseDir) ?: [];
+    foreach ($entries as $entry) {
+        if ($entry === '.' || $entry === '..') { continue; }
+        $full = $baseDir . '/' . $entry;
+        if (!is_dir($full)) { continue; }
+
+        $files = scandir($full) ?: [];
+        $images = [];
+        foreach ($files as $f) {
+            if ($f === '.' || $f === '..') { continue; }
+            $ext = strtolower(pathinfo($f, PATHINFO_EXTENSION));
+            if (in_array($ext, ['jpg','jpeg','png','webp'], true)) {
+                $images[] = 'assets/img/' . $slug . '/' . $entry . '/' . $f;
+            }
+        }
+        sort($images, SORT_NATURAL | SORT_FLAG_CASE);
+        if (count($images) > 0) {
+            return $images;
+        }
+    }
+    return [];
+}
+
 function getDisplayNameForSlug(string $slug): string {
     return ucwords(str_replace('-', ' ', $slug));
 }
 
 function getBreedSlugs(): array {
-    $imgRoot = __DIR__ . '/../assets/img';
-    $slugs = [];
-    if (!is_dir($imgRoot)) {
-        return $slugs;
+    // Restrict to the allowed set (and only include those with at least one image)
+    $available = [];
+    foreach (ALLOWED_BREED_SLUGS as $slug) {
+        if (count(scanPetImages($slug)) > 0) {
+            $available[] = $slug;
+        }
     }
-    $entries = scandir($imgRoot) ?: [];
-    foreach ($entries as $entry) {
-        if ($entry === '.' || $entry === '..') {
-            continue;
-        }
-        $full = $imgRoot . '/' . $entry;
-        if (!is_dir($full)) {
-            continue;
-        }
-        if (in_array($entry, NON_PET_FOLDERS, true)) {
-            continue;
-        }
-        if (in_array($entry, NAMED_PET_SLUGS, true)) {
-            continue;
-        }
-        $images = scanPetImages($entry);
-        if (count($images) === 0) {
-            continue;
-        }
-        $slugs[] = $entry;
-    }
-    sort($slugs, SORT_FLAG_CASE | SORT_STRING);
-    return $slugs;
+    return $available;
 }
 
 function generateDogName(string $breedSlug, int $index): string {
@@ -131,18 +168,15 @@ function getAllPets(): array {
         'description' => 'Laura is friendly and smart, great with families and other pets. Vaccinated and eager to find a forever home.'
     ];
 
-    // Add many common breeds (images will populate automatically when present in assets/img/<slug>/)
-    $breedSlugs = [
-        'golden-retriever','labrador-retriever','german-shepherd','poodle','bulldog','beagle','rottweiler','yorkshire-terrier','boxer','dachshund',
-        'great-dane','siberian-husky','doberman','australian-shepherd','shih-tzu','pomeranian','chihuahua','border-collie','bernese-mountain-dog','boston-terrier',
-        'shetland-sheepdog','cocker-spaniel','mastiff','bichon-frise','havanese','cane-corso','belgian-malinois','weimaraner','newfoundland','vizsla',
-        'whippet','akita','bloodhound','bull-terrier','dalmatian','greyhound','irish-setter','keeshond','alaskan-malamute','samoyed',
-        'staffordshire-bull-terrier','pointer','saint-bernard','papillon','corgi','basenji','australian-cattle-dog','english-springer-spaniel','french-bulldog','pug'
-    ];
-
-    foreach ($breedSlugs as $slug) {
+    // Only include the allowed breeds in the dynamic list
+    foreach (ALLOWED_BREED_SLUGS as $slug) {
         $images = scanPetImages($slug);
-        $displayName = ucwords(str_replace('-', ' ', $slug));
+        if (count($images) === 0) {
+            // Fallback to curated subfolders when no top-level images exist (e.g., poodle)
+            $images = scanFirstSubfolderImages($slug);
+        }
+        if (count($images) === 0) { continue; }
+        $displayName = getDisplayNameForSlug($slug);
         $pets[] = [
             'name' => $displayName,
             'breed' => $displayName,
@@ -153,44 +187,7 @@ function getAllPets(): array {
         ];
     }
 
-    // Also auto-include any other folders under assets/img (e.g., dog-ceo slugs like "french-bulldog" vs "bulldog-french")
-    $existingSlugs = array_fill_keys(array_map(fn($p) => $p['slug'], $pets), true);
-    $imgRoot = __DIR__ . '/../assets/img';
-    if (is_dir($imgRoot)) {
-        $entries = scandir($imgRoot) ?: [];
-        foreach ($entries as $entry) {
-            if ($entry === '.' || $entry === '..') {
-                continue;
-            }
-            $full = $imgRoot . '/' . $entry;
-            if (!is_dir($full)) {
-                continue;
-            }
-            // Skip known non-pet asset folders
-            $skip = in_array($entry, [
-                'bg','blog','clients','cta','illustration','person','portfolio','services','steps'
-            ], true);
-            if ($skip) {
-                continue;
-            }
-            if (isset($existingSlugs[$entry])) {
-                continue;
-            }
-            $images = scanPetImages($entry);
-            if (count($images) === 0) {
-                continue;
-            }
-            $displayName = ucwords(str_replace('-', ' ', $entry));
-            $pets[] = [
-                'name' => $displayName,
-                'breed' => $displayName,
-                'age' => 'Varies',
-                'slug' => $entry,
-                'images' => $images,
-                'description' => $displayName . ' looking for a loving home.'
-            ];
-        }
-    }
+    // Do not auto-include any other folders; strictly enforce ALLOWED_BREED_SLUGS
 
     return $pets;
 }
