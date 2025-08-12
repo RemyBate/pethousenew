@@ -31,11 +31,11 @@
         <section id="available-pets" class="available-pets section">
             <div class="container">
                 <?php require_once __DIR__ . '/includes/pets-data.php'; $pets = getAllPets(); ?>
-                <div class="row gy-4 justify-content-center">
+                <div class="row gx-4 gy-5 justify-content-center">
                   <?php foreach ($pets as $index => $pet): ?>
                     <?php if (!isset($pet['images']) || count($pet['images']) === 0) continue; ?>
                     <?php $galleryId = htmlspecialchars($pet['slug']) . '-gallery'; ?>
-                    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="<?php echo 100 + ($index % 5) * 50; ?>">
+                    <div class="col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="<?php echo 100 + ($index % 5) * 50; ?>">
                       <div class="card border-0 shadow-sm">
                         <div class="row g-0 align-items-stretch">
                           <div class="col-md-6">

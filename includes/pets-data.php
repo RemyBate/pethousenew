@@ -91,9 +91,12 @@ function getBreedSlugs(): array {
     // Restrict to the allowed set (and only include those with at least one image)
     $available = [];
     foreach (ALLOWED_BREED_SLUGS as $slug) {
-        if (count(scanPetImages($slug)) > 0) {
-            $available[] = $slug;
+        $images = scanPetImages($slug);
+        if (count($images) === 0) {
+            // Allow breeds that only store images in curated subfolders
+            $images = scanFirstSubfolderImages($slug);
         }
+        if (count($images) > 0) { $available[] = $slug; }
     }
     return $available;
 }

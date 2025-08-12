@@ -24,6 +24,7 @@
                     'Golden Retriever' => 'golden-retriever',
                     'German Shepherd Dog' => 'german-shepherd',
                     'Poodle' => 'poodle',
+                    'Toy Poodle' => 'toy-poodle',
                     'Dachshund' => 'dachshund',
                     'Bulldog' => 'bulldog',
                     'Beagle' => 'beagle',
@@ -42,8 +43,8 @@
                   ];
                   // Render featured first (only if images exist)
                   foreach ($featured as $label => $slug) {
+                    // $allSlugs already includes only breeds with available images (top-level or subfolders)
                     if (!in_array($slug, $allSlugs, true)) { continue; }
-                    if (count(scanPetImages($slug)) === 0) { continue; }
                 ?>
                   <li><a href="breed.php?breed=<?php echo htmlspecialchars($slug); ?>"><?php echo htmlspecialchars($label); ?></a></li>
                 <?php }

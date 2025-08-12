@@ -36,9 +36,10 @@
             data-aos="zoom-out"
             data-aos-delay="200">
             <img
-              src="assets/img/hero-img.png"
+              src="assets/img/mae.jpg"
               class="img-fluid animated hero-dog-image"
-              alt="PupNest Hero Image" />
+              alt="Mae the French Bulldog Puppy"
+              title="Mae" />
           </div>
         </div>
       </div>
