@@ -8,15 +8,15 @@ if ($slug === '') {
 }
 
 $allImages = scanPetImages($slug);
-// Exactly 4 images per dog, target 5 dogs (20 images)
+// Exactly 4 images per dog. Show ALL curated subfolders; if none, fall back to top-level groups.
 $imagesPerDog = 4;
-$targetDogs = 5;
 
 // First, prefer curated subfolders: assets/img/<breed>/<dog-id>/[1..].jpg
 $groups = [];
 $breedDir = __DIR__ . '/assets/img/' . $slug;
 if (is_dir($breedDir)) {
   $entries = scandir($breedDir) ?: [];
+  sort($entries, SORT_NATURAL | SORT_FLAG_CASE);
   foreach ($entries as $entry) {
     if ($entry === '.' || $entry === '..') { continue; }
     $full = $breedDir . '/' . $entry;
@@ -34,32 +34,22 @@ if (is_dir($breedDir)) {
     sort($images, SORT_NATURAL | SORT_FLAG_CASE);
     if (count($images) > 0) {
       // Use the subfolder name as this dog's display name when available
-      $dogName = $entry;
+      $dogName = ucwords(str_replace(['-', '_'], ' ', $entry));
       // Allow variable image counts per dog, but cap to $imagesPerDog for consistent gallery size
       $groups[] = [
         'name' => $dogName,
         'images' => array_slice($images, 0, $imagesPerDog),
       ];
     }
-    if (count($groups) >= $targetDogs) { break; }
   }
 }
 
-// If we still need more dogs, fill from top-level images grouped by 4
-if (count($groups) < $targetDogs) {
-  $neededDogs = $targetDogs - count($groups);
-  // Exclude any images that are already used from subfolders (none overlap with top-level)
-  // Group available top-level images
-  $neededImages = $neededDogs * $imagesPerDog;
-  if (count($allImages) >= $neededImages) {
-    $usable = array_slice($allImages, 0, $neededImages);
-  } else {
-    $usableCount = intdiv(count($allImages), $imagesPerDog) * $imagesPerDog;
-    $usable = array_slice($allImages, 0, $usableCount);
-  }
+// If there are no curated subfolders, fall back to top-level images grouped by 4
+if (count($groups) === 0) {
+  $usableCount = intdiv(count($allImages), $imagesPerDog) * $imagesPerDog;
+  $usable = array_slice($allImages, 0, $usableCount);
   $fallbackGroups = array_chunk($usable, $imagesPerDog);
   foreach ($fallbackGroups as $g) {
-    if (count($groups) >= $targetDogs) { break; }
     if (count($g) === $imagesPerDog) {
       $groups[] = [
         'name' => null,

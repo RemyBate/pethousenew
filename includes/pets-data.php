@@ -27,6 +27,7 @@ const ALLOWED_BREED_SLUGS = [
     'boxer',
     'great-dane',
     'shih-tzu',
+    'maltipoo',
 ];
 
 function scanPetImages(string $slug): array {

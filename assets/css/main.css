@@ -350,14 +350,19 @@ body:not(.index-page) .header {
 
   .navmenu .dropdown .breeds-grid li {
     min-width: 0 !important;
-    flex: 0 0 20%;
-    max-width: 20%;
+    flex: 0 0 22%;
+    max-width: 22%;
     white-space: normal;
+    padding-right: 8px; /* Add horizontal spacing between columns */
   }
 
   .navmenu .dropdown .breeds-grid a {
     padding: 8px 10px;
     font-size: 14px;
+    display: block;           /* Override flex from .navmenu a */
+    white-space: normal;      /* Allow long breed names to wrap */
+    line-height: 1.35;        /* Add breathing room between lines */
+    word-break: break-word;   /* Prevent overflow on long words */
   }
 
   .navmenu .megamenu {
