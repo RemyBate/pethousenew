@@ -58,53 +58,25 @@
             <div class="col-lg-2 col-md-3 footer-links">
                 <h4>Useful Links</h4>
                 <ul>
-                    <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-                    <li>
-                        <i class="bi bi-chevron-right"></i> <a href="#">About us</a>
-                    </li>
-                    <li>
-                        <i class="bi bi-chevron-right"></i> <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <i class="bi bi-chevron-right"></i>
-                        <a href="#">Terms of service</a>
-                    </li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="index.php">Home</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="about.php">About Us</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="reviews.php">Reviews</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="contact.php">Contact</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="available-pets.php">Available Pets</a></li>
                 </ul>
             </div>
 
             <div class="col-lg-2 col-md-3 footer-links">
                 <h4>Our Services</h4>
                 <ul>
-                    <li>
-                        <i class="bi bi-chevron-right"></i> <a href="#">Web Design</a>
-                    </li>
-                    <li>
-                        <i class="bi bi-chevron-right"></i>
-                        <a href="#">Web Development</a>
-                    </li>
-                    <li>
-                        <i class="bi bi-chevron-right"></i>
-                        <a href="#">Product Management</a>
-                    </li>
-                    <li>
-                        <i class="bi bi-chevron-right"></i> <a href="#">Marketing</a>
-                    </li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="available-pets.php">Pet Adoption</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="reviews.php?section=testimonials">Adoption Support</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="reviews.php?section=adoption-stories">Adoption Stories</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="contact.php">Ask Our Team</a></li>
                 </ul>
             </div>
 
-            <div class="col-lg-4 col-md-12">
-                <h4>Follow Us</h4>
-                <p>
-                    Cras fermentum odio eu feugiat lide par naso tierra videa magna
-                    derita valies
-                </p>
-                <div class="social-links d-flex">
-                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-            </div>
+            
         </div>
     </div>
 

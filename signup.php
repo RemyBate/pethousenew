@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Sign in - PupNest</title>
-  <meta name="description" content="Sign in to PupNest" />
-  <meta name="keywords" content="login, signin, account" />
+  <title>Create account - PupNest</title>
+  <meta name="description" content="Create a PupNest account" />
+  <meta name="keywords" content="signup, register, account" />
   <?php require 'includes/head.php' ?>
 </head>
 
@@ -36,30 +36,34 @@
           <div class="auth-card shadow-lg rounded-4 overflow-hidden">
             <div class="row g-0">
               <div class="col-md-6 d-none d-md-block auth-hero position-relative">
-                <img src="assets/img/golden-retriever/Angel/1.jpg" alt="Happy dog" class="w-100 h-100 object-fit-cover" />
+                <img src="assets/img/golden-retriever/Angel/12.jpg" alt="Happy dog" class="w-100 h-100 object-fit-cover" />
               </div>
               <div class="col-md-6 bg-white p-4 p-md-5">
                 <div class="d-flex align-items-center mb-4 gap-3">
                   <img src="assets/img/logo/logonew.jpg" alt="PupNest" style="width:38px;height:38px;border-radius:8px;object-fit:cover" />
-                  <h3 class="m-0">Sign in to PupNest</h3>
+                  <h3 class="m-0">Create your account</h3>
                 </div>
 
                 <form class="row gy-3" action="#" method="post" novalidate>
                   <input type="hidden" name="return" value="<?php echo htmlspecialchars($returnTo); ?>" />
                   <div class="col-12">
-                    <label class="form-label">Email or Phone number</label>
-                    <input type="text" name="email" class="form-control" placeholder="Email or Phone number" required />
+                    <label class="form-label">Full Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Your full name" required />
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" name="email" class="form-control" placeholder="you@example.com" required />
                   </div>
                   <div class="col-12">
                     <label class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="Password" required />
+                    <input type="password" name="password" class="form-control" placeholder="Create a password" required />
                   </div>
                   <div class="col-12 d-grid mt-2">
-                    <button class="btn btn-primary py-2" type="submit">Sign in</button>
+                    <button class="btn btn-primary py-2" type="submit">Create Account</button>
                   </div>
                 </form>
 
-                <div class="text-center my-3 text-muted">or</div>
+                <div class="text-center my-3 text-muted">or continue with</div>
 
                 <div class="d-grid gap-2">
                   <a href="#" class="btn btn-outline-primary d-flex align-items-center justify-content-center gap-2"><i class="bi bi-google"></i> Continue with Google</a>
@@ -71,7 +75,7 @@
                   <a href="<?php echo htmlspecialchars($returnTo); ?>" class="btn btn-outline-secondary">Continue as guest</a>
                 </div>
 
-                <p class="mt-4 mb-0 text-center text-muted">Need an account? <a href="signup.php?return=<?php echo urlencode($returnTo); ?>">Sign up</a></p>
+                <p class="mt-4 mb-0 text-center text-muted">Already have an account? <a href="login.php?return=<?php echo urlencode($returnTo); ?>">Sign in</a></p>
               </div>
             </div>
           </div>

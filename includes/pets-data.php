@@ -3,7 +3,11 @@
 declare(strict_types=1);
 
 const NAMED_PET_SLUGS = ['max','rocky','luna','noin','alaris','laura'];
-const NON_PET_FOLDERS = ['bg','blog','clients','cta','illustration','person','portfolio','services','steps','logo'];
+const NON_PET_FOLDERS = [
+    'bg','blog','clients','cta','illustration','person','portfolio','services','steps','logo',
+    // Non-breed asset folders that were showing up in the Breeds menu
+    'slide','slides','reviewers','team','stories'
+];
 // Only allow these breed slugs to appear anywhere in the UI
 const ALLOWED_BREED_SLUGS = [
     'french-bulldog',

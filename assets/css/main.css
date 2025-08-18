@@ -1,3 +1,7 @@
+/* Auth cards */
+.auth .auth-card{border:1px solid color-mix(in srgb, var(--default-color), transparent 90%);}
+.auth .object-fit-cover{object-fit:cover}
+.auth .btn i{font-size:18px}
 .story-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid color-mix(in srgb, var(--accent-color), transparent 70%); }
 /**
 * Template Name: Arsha

@@ -51,7 +51,12 @@
                             <div class="story-content">
                                 <h3>Max's Journey to His Forever Home</h3>
                                 <p>When we first met Max, he was a shy and timid dog. Now, he's the most loving and playful companion we could ask for...</p>
-                                <a href="#" class="read-more">Read Full Story</a>
+                                <button type="button" class="btn btn-outline-primary btn-sm read-more" data-bs-toggle="modal" data-bs-target="#storyModal" data-title="Max's Journey to His Forever Home" data-author="Sarah Johnson" data-date="January 15, 2024">Read Full Story</button>
+                                <template class="story-full">
+                                  <p>Max arrived at the shelter after a difficult start to life. For the first few days he tucked himself into the corner of the kennel and watched the world from behind his paws. We took it slow—quiet visits, gentle voices, and short walks at his pace.</p>
+                                  <p>After two weeks, Max wagged his tail for the first time. A week later he gave his very first nose boop. The day we met him, he leaned into our legs and sighed as if to say, “I’m ready.”</p>
+                                  <p>Today, Max sleeps on a soft blanket by the window and trots to the door whenever he hears the word “park.” He is proof that patience and kindness can rewrite a story.</p>
+                                </template>
                             </div>
                         </div>
                     </div>
@@ -67,8 +72,12 @@
                             </div>
                             <div class="story-content">
                                 <h3>Luna's New Beginning</h3>
-                                <p>Luna came to us as a rescue cat with trust issues. Today, she's the queen of our household...</p>
-                                <a href="#" class="read-more">Read Full Story</a>
+                                <p>Luna came to us as a rescue dog with trust issues. Today, she's the queen of our household...</p>
+                                <button type="button" class="btn btn-outline-primary btn-sm read-more" data-bs-toggle="modal" data-bs-target="#storyModal" data-title="Luna's New Beginning" data-author="Michael Brown" data-date="February 1, 2024">Read Full Story</button>
+                                <template class="story-full">
+                                  <p>Luna hid under the bed for the first three days. We sat on the floor and read aloud so she could learn our voices. Bit by bit she ventured out—first for treats, then for a feather toy dragged across the carpet.</p>
+                                  <p>Her biggest milestone was choosing to nap on the couch beside us. Now she greets us at the door and chirps for breakfast. Luna didn’t just find a home; she found her confidence.</p>
+                                </template>
                             </div>
                         </div>
                     </div>
@@ -85,7 +94,11 @@
                       <div class="story-content">
                         <h3>From Shelter to Sunshine</h3>
                         <p>After weeks of patient socialization, Daisy found a family who adores her goofy smile and endless zoomies.</p>
-                        <a href="#" class="read-more">Read Full Story</a>
+                        <button type="button" class="btn btn-outline-primary btn-sm read-more" data-bs-toggle="modal" data-bs-target="#storyModal" data-title="From Shelter to Sunshine" data-author="Olivia Carter" data-date="March 8, 2024">Read Full Story</button>
+                        <template class="story-full">
+                          <p>Daisy came in with a tucked tail and a guarded heart. Volunteers paired her with calm walkers and friendly dogs during play time. The first time she chased a ball, everyone cheered.</p>
+                          <p>When her new family visited, Daisy climbed into their laps as if she had always known them. She now spends her mornings sunbathing and her evenings learning new tricks for treats.</p>
+                        </template>
                       </div>
                     </div>
                   </div>
@@ -102,7 +115,11 @@
                       <div class="story-content">
                         <h3>Charlie Finds a Running Buddy</h3>
                         <p>Charlie loves long runs at the park with his new person and has already completed his first 5k!</p>
-                        <a href="#" class="read-more">Read Full Story</a>
+                        <button type="button" class="btn btn-outline-primary btn-sm read-more" data-bs-toggle="modal" data-bs-target="#storyModal" data-title="Charlie Finds a Running Buddy" data-author="Ethan Miller" data-date="April 2, 2024">Read Full Story</button>
+                        <template class="story-full">
+                          <p>Charlie had energy to spare and needed structure to channel it. We introduced a simple routine: sniff walks, puzzle feeders, and short jogs.</p>
+                          <p>His adopter trains for local races, so they built distance together. Charlie now wears his own little bandana on race day and reminds us that exercise can be pure joy.</p>
+                        </template>
                       </div>
                     </div>
                   </div>
@@ -119,7 +136,11 @@
                       <div class="story-content">
                         <h3>A Gentle Giant Named Bruno</h3>
                         <p>Bruno's calm nature won over every heart at home. He guards the toddler's naps like a pro.</p>
-                        <a href="#" class="read-more">Read Full Story</a>
+                        <button type="button" class="btn btn-outline-primary btn-sm read-more" data-bs-toggle="modal" data-bs-target="#storyModal" data-title="A Gentle Giant Named Bruno" data-author="Sophia Nguyen" data-date="May 10, 2024">Read Full Story</button>
+                        <template class="story-full">
+                          <p>Bruno looked imposing but had a heart of marshmallow. He was surrendered when his family moved and didn’t understand why his world changed.</p>
+                          <p>His adopters gave him a job—“family watchdog”—and plenty of structure. Bruno now naps with one ear open and insists on bedtime snuggles.</p>
+                        </template>
                       </div>
                     </div>
                   </div>
@@ -136,7 +157,11 @@
                       <div class="story-content">
                         <h3>Maple Learns to Smile Again</h3>
                         <p>With patience and love, Maple blossomed into a cuddly lapdog who never misses a movie night.</p>
-                        <a href="#" class="read-more">Read Full Story</a>
+                        <button type="button" class="btn btn-outline-primary btn-sm read-more" data-bs-toggle="modal" data-bs-target="#storyModal" data-title="Maple Learns to Smile Again" data-author="Daniel Ross" data-date="June 1, 2024">Read Full Story</button>
+                        <template class="story-full">
+                          <p>Maple arrived with a timid spirit and a tail that rarely moved. Foster care gave her space to decompress and learn that hands could mean treats, not fear.</p>
+                          <p>Her adopter says Maple now chooses the comfiest lap during movie night and brings a toy to every guest as a welcome gift.</p>
+                        </template>
                       </div>
                     </div>
                   </div>
@@ -177,7 +202,7 @@
                         <div class="testimonial-card">
                             <div class="testimonial-content">
                                 <p><i class="bi bi-quote quote-icon-left"></i>
-                                    I couldn't be happier with my adoption experience. My new cat has brought so much joy to my life.
+                                    I couldn't be happier with my adoption experience. My new dog has brought so much joy to my life.
                                     <i class="bi bi-quote quote-icon-right"></i>
                                 </p>
                             </div>
@@ -185,7 +210,7 @@
                                 <img src="assets/img/reviewers/emily-davis.jpg" alt="Emily Davis" class="author-avatar" />
                                 <div>
                                     <h3>Emily Davis</h3>
-                                    <h4>Cat Parent</h4>
+                                    <h4>Dog Parent</h4>
                                 </div>
                             </div>
                         </div>
@@ -372,5 +397,44 @@
 
     <?php require 'includes/footer.php' ?>
     <?php require 'includes/footerscripts.php' ?>
+
+    <!-- Story Modal -->
+    <div class="modal fade" id="storyModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="storyModalLabel">Story</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="small text-muted mb-2" id="storyMeta"></div>
+            <div id="storyBody"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var storyModal = document.getElementById('storyModal');
+        if (!storyModal) return;
+        storyModal.addEventListener('show.bs.modal', function (event) {
+          var button = event.relatedTarget;
+          var card = button.closest('.story-card');
+          var title = button.getAttribute('data-title') || 'Story';
+          var author = button.getAttribute('data-author') || '';
+          var date = button.getAttribute('data-date') || '';
+          var fullTpl = card.querySelector('template.story-full');
+          var bodyHtml = fullTpl ? fullTpl.innerHTML : '<p>No additional details.</p>';
+
+          storyModal.querySelector('.modal-title').textContent = title;
+          storyModal.querySelector('#storyMeta').textContent = (author && date) ? (author + ' • ' + date) : (author || date);
+          storyModal.querySelector('#storyBody').innerHTML = bodyHtml;
+        });
+      });
+    </script>
 </body>
 </html> 

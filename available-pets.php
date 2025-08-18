@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Available Pets - PupNest</title>
     <meta name="description" content="View our available pets for adoption">
-    <meta name="keywords" content="pets, adoption, dogs, cats, animals">
+    <meta name="keywords" content="pets, adoption, dogs, animals">
 
     <?php require 'includes/head.php' ?>
 </head>

@@ -75,7 +75,9 @@
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
 
-    <a class="btn-getstarted" href="available-pets.php">Adopt Now</a>
+    <div class="d-flex align-items-center gap-2">
+      <a class="btn-getstarted" href="signup.php">Create account</a>
+    </div>
   </div>
   </header>
 
