@@ -56,14 +56,8 @@ $bodyLines = [
 $body = implode("\r\n", array_values(array_filter($bodyLines, fn($l) => $l !== null)));
 
 // Build headers
-$headers = [];
-$headers[] = 'MIME-Version: 1.0';
-$headers[] = 'Content-Type: text/plain; charset=UTF-8';
-$headers[] = 'From: ' . ($name !== '' ? "$name <no-reply@" . $_SERVER['SERVER_NAME'] . '>': 'no-reply@' . $_SERVER['SERVER_NAME']);
-$headers[] = 'Reply-To: ' . $email;
-$headers[] = 'X-Mailer: PHP/' . phpversion();
-
-$success = @mail($recipient, $subject, $body, implode("\r\n", $headers));
+require_once __DIR__ . '/includes/mailer.php';
+$success = pupnest_send_mail($recipient, 'PupNest Admin', $subject, $body, $email, $name);
 
 if ($success) {
     // Simple thank-you page

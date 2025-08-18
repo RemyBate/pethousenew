@@ -44,7 +44,7 @@
                   <h3 class="m-0">Create your account</h3>
                 </div>
 
-                <form class="row gy-3" action="#" method="post" novalidate>
+                <form class="row gy-3" action="signup-submit.php" method="post" novalidate>
                   <input type="hidden" name="return" value="<?php echo htmlspecialchars($returnTo); ?>" />
                   <div class="col-12">
                     <label class="form-label">Full Name</label>
@@ -87,6 +87,36 @@
 
 <?php require 'includes/footer.php' ?>
 <?php require 'includes/footerscripts.php' ?>
+
+<?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
+<!-- Signup Success Modal -->
+<div class="modal fade" id="signupSuccessModal" tabindex="-1" aria-labelledby="signupSuccessLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupSuccessLabel">Signup successful</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Thank you for creating an account with PupNest<?php echo isset($_GET['name']) ? ', ' . htmlspecialchars($_GET['name']) : '';?>. We\'ve sent a confirmation email to your inbox.</p>
+      </div>
+      <div class="modal-footer">
+        <a href="<?php echo htmlspecialchars($returnTo); ?>" class="btn btn-primary">Continue</a>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+ </div>
+<script>
+  (function(){
+    var el = document.getElementById('signupSuccessModal');
+    if (el && typeof bootstrap !== 'undefined') {
+      var m = new bootstrap.Modal(el);
+      m.show();
+    }
+  })();
+</script>
+<?php endif; ?>
 
 <style>
   .auth-card{background:#fff}

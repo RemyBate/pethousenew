@@ -44,7 +44,7 @@
                   <h3 class="m-0">Sign in to PupNest</h3>
                 </div>
 
-                <form class="row gy-3" action="#" method="post" novalidate>
+                <form class="row gy-3" action="login-submit.php" method="post" novalidate>
                   <input type="hidden" name="return" value="<?php echo htmlspecialchars($returnTo); ?>" />
                   <div class="col-12">
                     <label class="form-label">Email or Phone number</label>
