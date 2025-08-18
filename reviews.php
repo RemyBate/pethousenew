@@ -41,9 +41,15 @@
                 <div class="row gy-4">
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="story-card">
+                            <div class="story-header d-flex align-items-center gap-2 mb-2">
+                                <img src="assets/img/stories/sarah-johnson.jpg" alt="Sarah Johnson" class="story-avatar" />
+                                <div>
+                                    <strong>Sarah Johnson</strong>
+                                    <div class="text-muted small">January 15, 2024</div>
+                                </div>
+                            </div>
                             <div class="story-content">
                                 <h3>Max's Journey to His Forever Home</h3>
-                                <p class="story-meta">By Sarah Johnson | January 15, 2024</p>
                                 <p>When we first met Max, he was a shy and timid dog. Now, he's the most loving and playful companion we could ask for...</p>
                                 <a href="#" class="read-more">Read Full Story</a>
                             </div>
@@ -52,9 +58,15 @@
 
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="story-card">
+                            <div class="story-header d-flex align-items-center gap-2 mb-2">
+                                <img src="assets/img/stories/michael-brown.jpg" alt="Michael Brown" class="story-avatar" />
+                                <div>
+                                    <strong>Michael Brown</strong>
+                                    <div class="text-muted small">February 1, 2024</div>
+                                </div>
+                            </div>
                             <div class="story-content">
                                 <h3>Luna's New Beginning</h3>
-                                <p class="story-meta">By Michael Brown | February 1, 2024</p>
                                 <p>Luna came to us as a rescue cat with trust issues. Today, she's the queen of our household...</p>
                                 <a href="#" class="read-more">Read Full Story</a>
                             </div>
@@ -63,9 +75,15 @@
 
                   <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="story-card">
+                      <div class="story-header d-flex align-items-center gap-2 mb-2">
+                        <img src="assets/img/stories/olivia-carter.jpg" alt="Olivia Carter" class="story-avatar" />
+                        <div>
+                          <strong>Olivia Carter</strong>
+                          <div class="text-muted small">March 8, 2024</div>
+                        </div>
+                      </div>
                       <div class="story-content">
                         <h3>From Shelter to Sunshine</h3>
-                        <p class="story-meta">By Olivia Carter | March 8, 2024</p>
                         <p>After weeks of patient socialization, Daisy found a family who adores her goofy smile and endless zoomies.</p>
                         <a href="#" class="read-more">Read Full Story</a>
                       </div>
@@ -74,9 +92,15 @@
 
                   <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="story-card">
+                      <div class="story-header d-flex align-items-center gap-2 mb-2">
+                        <img src="assets/img/stories/ethan-miller.jpg" alt="Ethan Miller" class="story-avatar" />
+                        <div>
+                          <strong>Ethan Miller</strong>
+                          <div class="text-muted small">April 2, 2024</div>
+                        </div>
+                      </div>
                       <div class="story-content">
                         <h3>Charlie Finds a Running Buddy</h3>
-                        <p class="story-meta">By Ethan Miller | April 2, 2024</p>
                         <p>Charlie loves long runs at the park with his new person and has already completed his first 5k!</p>
                         <a href="#" class="read-more">Read Full Story</a>
                       </div>
@@ -85,9 +109,15 @@
 
                   <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
                     <div class="story-card">
+                      <div class="story-header d-flex align-items-center gap-2 mb-2">
+                        <img src="assets/img/stories/sophia-nguyen.jpg" alt="Sophia Nguyen" class="story-avatar" />
+                        <div>
+                          <strong>Sophia Nguyen</strong>
+                          <div class="text-muted small">May 10, 2024</div>
+                        </div>
+                      </div>
                       <div class="story-content">
                         <h3>A Gentle Giant Named Bruno</h3>
-                        <p class="story-meta">By Sophia Nguyen | May 10, 2024</p>
                         <p>Bruno's calm nature won over every heart at home. He guards the toddler's naps like a pro.</p>
                         <a href="#" class="read-more">Read Full Story</a>
                       </div>
@@ -96,9 +126,15 @@
 
                   <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
                     <div class="story-card">
+                      <div class="story-header d-flex align-items-center gap-2 mb-2">
+                        <img src="assets/img/stories/daniel-ross.jpg" alt="Daniel Ross" class="story-avatar" />
+                        <div>
+                          <strong>Daniel Ross</strong>
+                          <div class="text-muted small">June 1, 2024</div>
+                        </div>
+                      </div>
                       <div class="story-content">
                         <h3>Maple Learns to Smile Again</h3>
-                        <p class="story-meta">By Daniel Ross | June 1, 2024</p>
                         <p>With patience and love, Maple blossomed into a cuddly lapdog who never misses a movie night.</p>
                         <a href="#" class="read-more">Read Full Story</a>
                       </div>
@@ -128,6 +164,7 @@
                                 </p>
                             </div>
                             <div class="testimonial-author">
+                                <img src="assets/img/reviewers/john-smith.jpg" alt="John Smith" class="author-avatar" />
                                 <div>
                                     <h3>John Smith</h3>
                                     <h4>Dog Parent</h4>
@@ -145,6 +182,7 @@
                                 </p>
                             </div>
                             <div class="testimonial-author">
+                                <img src="assets/img/reviewers/emily-davis.jpg" alt="Emily Davis" class="author-avatar" />
                                 <div>
                                     <h3>Emily Davis</h3>
                                     <h4>Cat Parent</h4>
@@ -162,6 +200,7 @@
                                 </p>
                             </div>
                             <div class="testimonial-author">
+                                <img src="assets/img/reviewers/robert-wilson.jpg" alt="Robert Wilson" class="author-avatar" />
                                 <div>
                                     <h3>Robert Wilson</h3>
                                     <h4>Dog Parent</h4>
@@ -179,6 +218,7 @@
                         </p>
                       </div>
                       <div class="testimonial-author">
+                        <img src="assets/img/reviewers/alex-carter.jpg" alt="Alex Carter" class="author-avatar" />
                         <div>
                           <h3>Alex Carter</h3>
                           <h4>Dog Parent</h4>
@@ -196,6 +236,7 @@
                         </p>
                       </div>
                       <div class="testimonial-author">
+                        <img src="assets/img/reviewers/priya-patel.jpg" alt="Priya Patel" class="author-avatar" />
                         <div>
                           <h3>Priya Patel</h3>
                           <h4>Dog Parent</h4>
@@ -213,6 +254,7 @@
                         </p>
                       </div>
                       <div class="testimonial-author">
+                        <img src="assets/img/reviewers/marco-silva.jpg" alt="Marco Silva" class="author-avatar" />
                         <div>
                           <h3>Marco Silva</h3>
                           <h4>Dog Parent</h4>
@@ -249,6 +291,7 @@
                             </div>
                             <p class="review-text">Amazing place! The staff is very knowledgeable and caring. They helped me find the perfect companion for my family.</p>
                             <div class="reviewer">
+                                <img src="assets/img/reviewers/david-thompson.jpg" alt="David Thompson" class="reviewer-avatar" />
                                 <span>David Thompson</span>
                             </div>
                         </div>
@@ -268,6 +311,7 @@
                             </div>
                             <p class="review-text">The adoption process was smooth and professional. They really care about matching the right pet with the right family.</p>
                             <div class="reviewer">
+                                <img src="assets/img/reviewers/lisa-anderson.jpg" alt="Lisa Anderson" class="reviewer-avatar" />
                                 <span>Lisa Anderson</span>
                             </div>
                         </div>
@@ -283,6 +327,7 @@
                       </div>
                       <p class="review-text">Wonderful staff and fantastic follow-up. We felt supported every step of the way.</p>
                       <div class="reviewer">
+                        <img src="assets/img/reviewers/hannah-lee.jpg" alt="Hannah Lee" class="reviewer-avatar" />
                         <span>Hannah Lee</span>
                       </div>
                     </div>
@@ -298,6 +343,7 @@
                       </div>
                       <p class="review-text">Great matching process and thorough vetting. Our dog fits perfectly with our family.</p>
                       <div class="reviewer">
+                        <img src="assets/img/reviewers/kevin-wright.jpg" alt="Kevin Wright" class="reviewer-avatar" />
                         <span>Kevin Wright</span>
                       </div>
                     </div>
@@ -313,6 +359,7 @@
                       </div>
                       <p class="review-text">Clean facility, kind volunteers, and a seamless adoption day. Highly recommend.</p>
                       <div class="reviewer">
+                        <img src="assets/img/reviewers/naomi-brooks.jpg" alt="Naomi Brooks" class="reviewer-avatar" />
                         <span>Naomi Brooks</span>
                       </div>
                     </div>

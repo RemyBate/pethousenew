@@ -1,3 +1,4 @@
+.story-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid color-mix(in srgb, var(--accent-color), transparent 70%); }
 /**
 * Template Name: Arsha
 * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
@@ -1634,12 +1635,17 @@ section,
 
 .team .team-member .pic {
   overflow: hidden;
-  width: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   flex-shrink: 0;
+  margin: 0 auto 15px;
 }
 
 .team .team-member .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: ease-in-out 0.3s;
 }
 
@@ -1681,6 +1687,12 @@ section,
   background: color-mix(in srgb, var(--default-color), transparent 85%);
   bottom: 0;
   left: 0;
+}
+
+.team .team-member .member-bio {
+  margin-top: 10px;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  font-size: 14px;
 }
 
 @media (max-width: 468px) {
@@ -1859,6 +1871,75 @@ section,
   margin-bottom: 40px;
 }
 
+/* Make the three main headings on the Reviews page larger and bolder */
+#adoption-stories .section-header h2,
+#testimonials .section-header h2,
+#google-reviews .section-header h2 {
+  font-size: 40px;
+  font-weight: 800;
+}
+
+/* Color and highlight for each Reviews section heading */
+#adoption-stories .section-header h2 {
+  color: var(--accent-color);
+}
+#adoption-stories .section-header h2::after {
+  content: "";
+  display: block;
+  height: 6px;
+  width: 140px;
+  background: var(--accent-color);
+  border-radius: 3px;
+  margin-top: 8px;
+}
+
+#testimonials .section-header h2 {
+  color: #845ef7; /* violet */
+}
+#testimonials .section-header h2::after {
+  content: "";
+  display: block;
+  height: 6px;
+  width: 180px;
+  background: #845ef7;
+  border-radius: 3px;
+  margin-top: 8px;
+}
+
+#google-reviews .section-header h2 {
+  color: #34a853; /* google green */
+}
+#google-reviews .section-header h2::after {
+  content: "";
+  display: block;
+  height: 6px;
+  width: 160px;
+  background: #34a853;
+  border-radius: 3px;
+  margin-top: 8px;
+}
+
+/* Google review avatars */
+.google-reviews .reviewer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.google-reviews .reviewer-avatar {
+  width: 320px !important;
+  height: 320px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+.google-reviews .review-card-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; }
+.google-reviews .review-card-stars { color:#f6b01e; margin-bottom:8px; }
+.google-reviews .user { display:flex; align-items:center; gap:10px; }
+.google-reviews .user-meta { display:flex; flex-direction:column; line-height:1.1; }
+.google-reviews .user-meta .muted { color: color-mix(in srgb, var(--default-color), transparent 45%); font-size:12px; }
+.google-reviews .google-badge { color:#4285F4; font-size:20px; }
+.google-reviews .clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-clamp: 3; }
+
 .testimonials .testimonials-carousel,
 .testimonials .testimonials-slider {
   overflow: hidden;
@@ -1885,6 +1966,42 @@ section,
   font-size: 14px;
   color: color-mix(in srgb, var(--default-color), transparent 40%);
   margin: 0 0 15px 0;
+}
+
+/* New testimonial card (reviews page) */
+.testimonial-card {
+  background: var(--surface-color);
+  border-top: 3px solid var(--accent-color);
+  border-bottom: 3px solid var(--accent-color);
+  box-shadow: 0 0 20px rgba(0,0,0,0.08);
+  padding: 16px;
+  height: 100%;
+}
+.testimonial-card .review-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.testimonial-card .user { display: flex; align-items: center; gap: 10px; }
+.testimonial-card .user-meta { display: flex; flex-direction: column; line-height: 1.1; }
+.testimonial-card .user-meta .muted { color: color-mix(in srgb, var(--default-color), transparent 45%); font-size: 12px; }
+.testimonial-card .review-card-stars { color: #f6b01e; margin: 6px 0 10px; }
+.testimonial-card .clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-clamp: 3; }
+.testimonial-card .see-more { font-weight: 600; }
+.testimonial-card .author-avatar { width: 320px !important; height: 320px !important; border-radius: 50%; object-fit: cover; border: 2px solid color-mix(in srgb, var(--accent-color), transparent 70%); }
+.testimonial-card .testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+.testimonial-card .author-avatar {
+  width: 320px !important;
+  height: 320px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid color-mix(in srgb, var(--accent-color), transparent 70%);
 }
 
 .testimonials .testimonial-item .stars {
@@ -2263,6 +2380,7 @@ section,
 
 .contact .php-email-form input[type=text],
 .contact .php-email-form input[type=email],
+.contact .php-email-form input[type=tel],
 .contact .php-email-form textarea {
   font-size: 14px;
   padding: 10px 15px;
@@ -2275,12 +2393,14 @@ section,
 
 .contact .php-email-form input[type=text]:focus,
 .contact .php-email-form input[type=email]:focus,
+.contact .php-email-form input[type=tel]:focus,
 .contact .php-email-form textarea:focus {
   border-color: var(--accent-color);
 }
 
 .contact .php-email-form input[type=text]::placeholder,
 .contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form input[type=tel]::placeholder,
 .contact .php-email-form textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
@@ -2572,6 +2692,15 @@ section,
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Force larger reviewer avatars (override any earlier rules) */
+.author-avatar,
+.reviewer-avatar {
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
 }
 
 .blog-details .hero-img .meta-overlay {

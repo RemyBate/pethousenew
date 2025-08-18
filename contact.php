@@ -50,12 +50,30 @@
           </div>
 
           <div class="col-md-6">
-            <form action="mailto:breedbabiesdaily@inbox.ru" method="post" enctype="text/plain" class="php-email-form">
+            <form action="contact-submit.php" method="post" class="php-email-form">
               <div class="form-group mb-3">
                 <input type="text" name="name" class="form-control" placeholder="Your Name" required />
               </div>
               <div class="form-group mb-3">
                 <input type="email" name="email" class="form-control" placeholder="Your Email" required />
+              </div>
+              <div class="form-group mb-3">
+                <input type="tel" name="phone" class="form-control" placeholder="Your Phone Number" />
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <input type="text" name="city" class="form-control" placeholder="City" required />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <input type="text" name="country" class="form-control" placeholder="Country" required />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <input type="text" name="address" class="form-control" placeholder="Address" />
               </div>
               <div class="form-group mb-3">
                 <textarea name="message" class="form-control" rows="5" placeholder="Message" required></textarea>

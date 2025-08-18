@@ -107,64 +107,44 @@
                 <div class="row gy-4">
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="team-member">
-                            <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="Team Member">
+                            <div class="pic"><img src="assets/img/team/team-1.jpg" alt="Sarah Johnson" onerror="this.onerror=null;this.src='https://source.unsplash.com/512x512/?professional,headshot,woman';"></div>
                             <div class="member-info">
                                 <h4>Sarah Johnson</h4>
                                 <span>Founder & Director</span>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
+                                <p class="member-bio">Leads PupNest’s mission and partnerships. 10+ years in animal welfare and rescue operations.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="team-member">
-                            <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="Team Member">
+                            <div class="pic"><img src="assets/img/team/team-2.jpg" alt="Michael Brown" onerror="this.onerror=null;this.src='https://source.unsplash.com/512x512/?professional,headshot,man,suit';"></div>
                             <div class="member-info">
                                 <h4>Michael Brown</h4>
                                 <span>Veterinarian</span>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
+                                <p class="member-bio">DVM focused on preventive medicine and rehabilitation, ensuring every pet is healthy and ready for home.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                         <div class="team-member">
-                            <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="Team Member">
+                            <div class="pic"><img src="assets/img/team/team-3.jpg" alt="Emily Davis" onerror="this.onerror=null;this.src='https://source.unsplash.com/512x512/?professional,headshot,woman,business';"></div>
                             <div class="member-info">
                                 <h4>Emily Davis</h4>
                                 <span>Adoption Coordinator</span>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
+                                <p class="member-bio">Matches pets with loving families and supports smooth transitions with training tips and guidance.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
                         <div class="team-member">
-                            <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="Team Member">
+                            <div class="pic"><img src="assets/img/team/team-4.jpg" alt="David Wilson" onerror="this.onerror=null;this.src='https://source.unsplash.com/512x512/?professional,headshot,man,business';"></div>
                             <div class="member-info">
                                 <h4>David Wilson</h4>
                                 <span>Animal Care Specialist</span>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
+                                <p class="member-bio">Oversees daily care, enrichment, and behavioral assessments to keep pets happy and confident.</p>
                             </div>
                         </div>
                     </div>
